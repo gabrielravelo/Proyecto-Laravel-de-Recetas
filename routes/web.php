@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// HACER LA TURA EN LARAVEL 8
+// HACER LA RUTA EN LARAVEL 8
 
 // forma 1
 Route::get('/recetas', [RecetaController::class, 'index'])->name('recetas.index');
