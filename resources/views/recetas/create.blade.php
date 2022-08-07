@@ -57,10 +57,7 @@
           <div class="form-group mt-3">
             <label for="preparacion">Preparación</label>
             <input id="preparacion" type="hidden" name="preparacion" value="{{ old('preparacion') }}">
-            <trix-editor
-                class="form-control @error('preparacion') is-invalid @enderror"
-                input="preparacion">
-            </trix-editor>
+            <trix-editor class="form-control @error('preparacion') is-invalid @enderror" input="preparacion"></trix-editor>
 
             @error('preparacion')
               <span class="invalid-feedback d-block" role="alert">
@@ -72,10 +69,7 @@
           <div class="form-group mt-3">
             <label for="ingredientes">Ingredientes</label>
             <input id="ingredientes" type="hidden" name="ingredientes" value="{{ old('ingredientes') }}">
-            <trix-editor
-                class="form-control @error('ingredientes') is-invalid @enderror"
-                input="ingredientes">
-            </trix-editor>
+            <trix-editor class="form-control @error('ingredientes') is-invalid @enderror" input="ingredientes"></trix-editor>
 
             @error('ingredientes')
               <span class="invalid-feedback d-block" role="alert">
@@ -85,17 +79,13 @@
           </div>
 
           <div class="form-group mt-3">
-            <label for="imagen">Subir una Imagen</label>
-            <input
-                id="imagen"
-                type="file"
-                class="form-control @error('imagen') is-invalid @enderror"
-                name="imagen">
+            <label for="imagen">Sube una Imágen</label>
+            <input id="imagen" type="file" class="form-control @error('imagen') is-invalid @enderror" name="imagen">
 
             @error('imagen')
-                <span class="invalid-feedback d-block" role="alert">
+              <span class="invalid-feedback d-block" role="alert">
                 <strong>{{ $message }}</strong>
-                </span>
+              </span>
             @enderror
           </div>
 
@@ -113,5 +103,4 @@
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js" integrity="sha512-/1nVu72YEESEbcmhE/EvjH/RxTg62EKvYWLG3NdeZibTCuEtW5M4z3aypcvsoZw03FAopi94y04GhuqRU9p+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
-
 

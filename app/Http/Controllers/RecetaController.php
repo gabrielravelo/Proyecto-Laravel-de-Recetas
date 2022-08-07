@@ -47,9 +47,9 @@ class RecetaController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request['imagen']->store('upload-recetas', 'public'));
+        // dd( $request['imagen']->store('uploads-recetas', 'public') );
 
-        // Validación
+        // validacion
         $data = $request->validate([
             'titulo' => 'required|min:6',
             'ingredientes' => 'required',
@@ -58,14 +58,14 @@ class RecetaController extends Controller
             'categoria' => 'required',
         ]);
 
-        // Obtener la ruta de la imagen
-        $ruta_imagen = $request['imagen']->store('upload-recetas', 'public');
+        // obtener la ruta de la imagen
+        $ruta_imagen = $request['imagen']->store('uploads-recetas', 'public');
 
-        // Resize de la imagen
+        // resize de la imagen
         $img = Image::make( public_path("storage/{$ruta_imagen}") )->fit(1000, 550);
         $img->save();
 
-        // Almacenar en la base de datos sin modelo
+        // almacenar en la bd sin modelo
         DB::table('recetas')->insert([
             'titulo' => $data['titulo'],
             'ingredientes' => $data['ingredientes'],
