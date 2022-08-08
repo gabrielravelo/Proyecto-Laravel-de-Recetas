@@ -55,6 +55,7 @@ class RecetaPolicy
     {
         // Revisa si el usuario autenticado es el mismo que creo la receta
         return $user->id === $receta->user_id;
+        
     }
 
     /**
