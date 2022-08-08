@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaReceta;
 use App\Models\Receta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,10 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        return view('recetas.index');
+        $recetas = Auth::user()->recetas;
+
+
+        return view('recetas.index', compact('recetas'));
     }
 
     /**
@@ -33,8 +37,11 @@ class RecetaController extends Controller
     {
         // DB::table('categoria_receta')->get()->pluck('nombre', 'id')->dd();
 
-        $categorias = DB::table('categoria_receta')->get()->pluck('nombre', 'id');
+        // Obtener las categorias (sin modelo)
+        // $categorias = DB::table('categoria_recetas')->get()->pluck('nombre', 'id');
 
+        // Con modelo
+        $categorias = CategoriaReceta::all(['id', 'nombre']);
 
         return view('recetas.create', compact('categorias'));
     }
@@ -65,14 +72,23 @@ class RecetaController extends Controller
         $img = Image::make( public_path("storage/{$ruta_imagen}") )->fit(1000, 550);
         $img->save();
 
-        // almacenar en la bd sin modelo
-        DB::table('recetas')->insert([
+        // almacenar en la bd (sin modelo)
+        // DB::table('recetas')->insert([
+        //     'titulo' => $data['titulo'],
+        //     'ingredientes' => $data['ingredientes'],
+        //     'preparacion' => $data['preparacion'],
+        //     'imagen' => $ruta_imagen,
+        //     'user_id' => Auth::user()->id,
+        //     'categoria_id' => $data['categoria'],
+        // ]);
+
+        // almacenar en la bd (con modelo)
+        Auth::user()->recetas()->create([
             'titulo' => $data['titulo'],
             'ingredientes' => $data['ingredientes'],
             'preparacion' => $data['preparacion'],
             'imagen' => $ruta_imagen,
-            'user_id' => Auth::user()->id,
-            'categoria_id' => $data['categoria'],
+            'categoria_id' => $data['categoria'],            
         ]);
 
         // Redireccionar
