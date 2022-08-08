@@ -16,16 +16,20 @@ use App\Http\Controllers\RecetaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('recetas.index'));
 });
 
 // HACER LA RUTA EN LARAVEL 8
 
 // forma 1
-Route::get('/recetas', [RecetaController::class, 'index'])->name('recetas.index');
-Route::get('/recetas/create', [RecetaController::class, 'create'])->name('recetas.create');
-Route::post('/recetas', [RecetaController::class, 'store'])->name('recetas.store');
-Route::get('/recetas/{receta}', [RecetaController::class, 'show'])->name('recetas.show');
+// Route::middleware('auth')->group(function(){
+    Route::get('/recetas', [RecetaController::class, 'index'])->name('recetas.index');
+    Route::get('/recetas/create', [RecetaController::class, 'create'])->name('recetas.create');
+    Route::post('/recetas', [RecetaController::class, 'store'])->name('recetas.store');
+    Route::get('/recetas/{receta}', [RecetaController::class, 'show'])->name('recetas.show');
+    Route::get('recetas/{receta}/edit',  [RecetaController::class, 'edit'])->name('recetas.edit');
+    Route::put('recetas/{receta}', [RecetaController::class, 'update'])->name('recetas.update');
+
 
 // forma 2
 // Route::get('/recetas', 'App\Http\Controllers\RecetaController@index');
