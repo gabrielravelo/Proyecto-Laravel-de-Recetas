@@ -40,6 +40,7 @@ class User extends Authenticatable
 
     /** Relacion 1:n de Usuario a Recetas **/
     public function recetas() {
+        
         return $this->hasMany(Receta::class);
     }
 }

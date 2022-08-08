@@ -13,7 +13,7 @@ class RecetaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'show']);
     }
     /**
      * Display a listing of the resource.
@@ -83,7 +83,8 @@ class RecetaController extends Controller
         // ]);
 
         // almacenar en la bd (con modelo)
-        Auth::user()->recetas()->create([
+        Receta::create([
+            'user_id' => Auth::user()->id,
             'titulo' => $data['titulo'],
             'ingredientes' => $data['ingredientes'],
             'preparacion' => $data['preparacion'],
@@ -103,7 +104,7 @@ class RecetaController extends Controller
      */
     public function show(Receta $receta)
     {
-        //
+        return view('recetas.show', compact('receta'));
     }
 
     /**
