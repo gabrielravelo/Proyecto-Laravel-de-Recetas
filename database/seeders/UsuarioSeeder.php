@@ -15,13 +15,28 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
+        // User::insert([
+        //     ['name'=> 'Gabriel', 
+        //     'email' => 'correo@correo.com', 
+        //     'password' =>Hash::make('12345678'), 
+        //     'url' => 'http://codigoconjuan.com', 
+        //     'created_at' => now(),
+        //     'updated_at' => now()],
+
+        //     ['name'=> 'Artisan', 
+        //     'email' => 'correo2@correo.com', 
+        //     'password' =>Hash::make('12345678'), 
+        //     'url' => 'https://facebook.com',
+        //     'created_at' => now(),
+        //     'updated_at' => now()]
+        // ]);
+
         $user = User::create([
             'name' => 'Gabriel',
             'email' => 'correo@correo.com',
             'password' => Hash::make('12345678'),
             'url' => 'http://codigoconjuan.com',
         ]);
-        $user->perfil()->create();
 
         $user2 = User::create([
             'name' => 'Artisan',
@@ -29,6 +44,5 @@ class UsuarioSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'url' => 'http://codigoconjuan.com',
         ]);
-        $user2->perfil()->create();
     }
 }

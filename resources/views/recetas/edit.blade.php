@@ -20,7 +20,7 @@
           @csrf
           
           @method('PUT')
-          <div class="form-group">
+          <div class="form-group mt-3">
             <label for="titulo">Título Receta</label>
 
             <input type="text"
@@ -39,7 +39,7 @@
             @enderror
           </div>
 
-          <div class="form-group">
+          <div class="form-group mt-3">
             <label for="categoria">Categoria</label>
 
             <select name="categoria" class="form-control @error('categoria') is-invalid @enderror" id="categoria">
