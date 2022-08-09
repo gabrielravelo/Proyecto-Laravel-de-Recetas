@@ -179,6 +179,6 @@ class RecetaController extends Controller
         // eliminar la receta
         $receta->delete();
 
-        return redirect( action ([RecetaController::class, 'index']) );
+        return redirect()->action([RecetaController::class, 'index']);
     }
 }

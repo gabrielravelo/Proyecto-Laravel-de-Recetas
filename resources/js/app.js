@@ -5,10 +5,11 @@
  */
 
 import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+window.Vue = require('vue').default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,12 +24,10 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.use(VueSweetalert2);
-Vue.config.ignoredElements = ['trix-editor'];
+Vue.use(VueSweetalert2)
+Vue.config.ignoredElements = ['trix-editor', 'trix-toolbar'];
 Vue.component('fecha-receta', require('./components/FechaReceta.vue').default);
 Vue.component('eliminar-receta', require('./components/EliminarReceta.vue').default);
-
-console.log(Vue.prototype);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
