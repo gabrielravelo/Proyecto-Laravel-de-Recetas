@@ -6,7 +6,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -38,9 +37,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // evento que se ejecuta cuando un usuario es creado
+    protected static function boot()
+    {
+        parent::boot();
+
+        // asignar perfil una vez se haya creado un usuario nuevo
+        static::created(function ($user) {
+            $user->perfil()->create();
+        });
+    }
+
     /** Relacion 1:n de Usuario a Recetas **/
-    public function recetas() {
+    public function recetas() 
+    {
         
         return $this->hasMany(Receta::class);
+    }
+
+    /** Relacion 1:1 de Usuario a Perfils **/
+    public function perfil() 
+    {
+        return $this->hasOne(Perfil::class);
     }
 }
