@@ -1,0 +1,22 @@
+body {
+  font-family: $parrafos-font-family;
+}
+.bg-primary .navbar-brand {
+  color: white;
+  font-family: $font-family-sans-serif;
+  font-size: 2rem;
+
+  &:hover {
+    color: white;
+  }
+}
+#navbarSupportedContent {
+  justify-content: end;
+}
+trix-editor {
+  min-height: 400px;
+  overflow: auto;
+}
+.icono {
+  width: 30px;
+}
