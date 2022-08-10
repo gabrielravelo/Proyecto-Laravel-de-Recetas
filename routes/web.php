@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Events\LikesController;
 use App\Http\Controllers\RecetaController;
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +48,8 @@ Route::get('/perfiles/{perfil}', 'App\Http\Controllers\PerfilController@show')->
 Route::get('perfiles/{perfil}/edit', 'App\Http\Controllers\PerfilController@edit')->name('perfiles.edit');
 Route::put('perfiles/{perfil}', 'App\Http\Controllers\PerfilController@update')->name('perfiles.update');
 
+// RUTA PARA LIKES
+Route::post('/recetas/{receta}', 'App\Http\Controllers\LikesController@update')->name('likes.update');
 
 Auth::routes();
 

@@ -70,6 +70,34 @@
             {{ $recetas->links() }}
         </div>
         
+        <h2 class="text-center my-5">Recetas que te gustan</h2>
+        <div class="col-md-10 mx-auto bg-white p-3">
+            <ul class="list-group">
+
+                @if (count($usuario->meGusta) > 0)
+                    @foreach ($usuario->meGusta as $receta)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <p>{{ $receta->titulo }}</p>
+                            <a 
+                                href="{{ route('recetas.show', ['receta' => $receta->id]) }}"
+                                class="btn 
+                                        btn-outline-primary
+                                        text-uppercase
+                                        font-weight-bold">
+                                Ver
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 icono" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </a>
+                        </li>
+                    @endforeach
+                @else
+                    <p class="text-center">Aún no tienes ningún like en alguna receta... Dale like a una receta para que apareza aquí!</p>
+                @endif
+                
+            </ul>
+        </div>
     </div>
 
 

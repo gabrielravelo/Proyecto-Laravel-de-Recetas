@@ -100,7 +100,14 @@
           </div>
 
           <div class="form-group">
-            <input type="submit" class="btn btn-primary mt-3" value="Agregar Receta">
+            <input 
+              type="submit" 
+              class="btn 
+                    btn-outline-primary
+                    text-uppercase
+                    font-weight-bold 
+                    mt-3" 
+              value="Agregar Receta">
           </div>
 
         </form>
