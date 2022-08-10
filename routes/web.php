@@ -26,13 +26,16 @@ Route::get('/', function () {
 
 // RUTAS PARA RECETAS
 // forma 1 de crear rutas
-Route::get('/recetas', [RecetaController::class, 'index'])->name('recetas.index');
-Route::get('/recetas/create', [RecetaController::class, 'create'])->name('recetas.create');
-Route::post('/recetas', [RecetaController::class, 'store'])->name('recetas.store');
-Route::get('/recetas/{receta}', [RecetaController::class, 'show'])->name('recetas.show');
-Route::get('recetas/{receta}/edit',  [RecetaController::class, 'edit'])->name('recetas.edit');
-Route::put('recetas/{receta}', [RecetaController::class, 'update'])->name('recetas.update');
-Route::delete('/recetas/{receta}', [RecetaController::class, 'destroy'])->name('recetas.destroy');
+// Route::get('/recetas', [RecetaController::class, 'index'])->name('recetas.index');
+// Route::get('/recetas/create', [RecetaController::class, 'create'])->name('recetas.create');
+// Route::post('/recetas', [RecetaController::class, 'store'])->name('recetas.store');
+// Route::get('/recetas/{receta}', [RecetaController::class, 'show'])->name('recetas.show');
+// Route::get('recetas/{receta}/edit',  [RecetaController::class, 'edit'])->name('recetas.edit');
+// Route::put('recetas/{receta}', [RecetaController::class, 'update'])->name('recetas.update');
+// Route::delete('/recetas/{receta}', [RecetaController::class, 'destroy'])->name('recetas.destroy');
+
+// todas las rutas de arriba, se pueden simplificar con la siguiente linea de codigo
+Route::resource('recetas', 'App\Http\Controllers\RecetaController');
 
 // RUTAS PARA PERFILES/USUARIOS
 // forma 2 de crear rutas

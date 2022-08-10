@@ -1,8 +1,14 @@
 <template>
   <input 
     type="submit"
-    class="btn btn-danger d-block w-100 mb-2" 
-    value="Eliminar ×"
+    class="btn 
+          btn-outline-danger
+          text-uppercase
+          font-weight-bold 
+          d-block 
+          w-100 
+          mb-2" 
+    value="Eliminar X"
     @click="eliminarReceta">
 </template>
 

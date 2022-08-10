@@ -5,7 +5,18 @@
 @endsection
 
 @section('botones')
-    <a href="{{ route('recetas.index') }}" class="btn btn-primary mr-2">Volver</a>
+    <a 
+      href="{{ route('recetas.index') }}" 
+      class="btn 
+            btn-outline-primary
+            text-uppercase
+            font-weight-bold 
+            mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 icono" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+      </svg>
+      Volver
+    </a>
 @endsection
 
 @section('content')
@@ -78,7 +89,6 @@
           @if($perfil->imagen)
             <div class="mt-4">
               <p>Imagen Actual</p>
-
               <img src="/storage/{{ $perfil->imagen }}" style="width: 300px">
             </div>
 
@@ -91,7 +101,14 @@
         </div>
 
         <div class="form-group">
-          <input type="submit" class="btn btn-primary mt-3" value="Actualizar Perfil">
+          <input
+                  type="submit" 
+                  class="btn 
+                        btn-outline-primary
+                        text-uppercase
+                        font-weight-bold 
+                        mt-3" 
+                  value="Actualizar Perfil">
         </div>
 
       </form>

@@ -10924,3 +10924,7 @@ trix-editor {
   min-height: 400px;
   overflow: auto;
 }
+
+.icono {
+  width: 30px;
+}

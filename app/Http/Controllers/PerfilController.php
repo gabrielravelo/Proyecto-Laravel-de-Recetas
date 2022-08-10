@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Perfil;
+use App\Models\Receta;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
 class PerfilController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'show']);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -16,7 +22,10 @@ class PerfilController extends Controller
      */
     public function show(Perfil $perfil)
     {
-        return view('perfiles.show', compact('perfil'));
+        // Obtener las recetas con paginacion
+        $recetas = Receta::where('user_id', $perfil->user_id)->paginate(6);
+
+        return view('perfiles.show', compact('perfil', 'recetas'));
     }
 
     /**
@@ -27,6 +36,9 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
+        // Ejecutar el policy
+        $this->authorize('view', $perfil);
+
         return view('perfiles.edit', compact('perfil'));
     }
 
@@ -39,7 +51,8 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
-        // dd();
+        // Ejecutar el policy
+        $this->authorize('update', $perfil);
 
         // Validar datos
         $data = request()->validate([
@@ -81,16 +94,5 @@ class PerfilController extends Controller
 
         // Redirrecionar
         return redirect()->action([RecetaController::class, 'index']);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Perfil  $perfil
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Perfil $perfil)
-    {
-        //
     }
 }
