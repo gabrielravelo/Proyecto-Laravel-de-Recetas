@@ -1,10 +1,11 @@
 body {
   font-family: $parrafos-font-family;
+  background-color: #eee;
 }
 .bg-primary .navbar-brand {
   color: white;
   font-family: $font-family-sans-serif;
-  font-size: 2rem;
+  font-size: 2.4rem;
 
   &:hover {
     color: white;
@@ -19,4 +20,99 @@ trix-editor {
 }
 .icono {
   width: 30px;
+}
+.barra {
+  background-color: #3490DC !important;
+}
+.fecha {
+  color: #3490DC !important;
+}
+.receta-meta {
+  font-size: 16px;
+  font-weight: bold;
+}
+.navbar-light {
+  .navbar-nav {
+    .nav-link {
+      color: #000;
+      font-size: 1.4rem;
+        &:focus,
+        &:hover {
+          color: #FFF !important;
+          cursor: pointer;
+        }
+    }
+  }
+}
+.titulo-categoria {
+  font-family: 'Cabin', sans-serif;
+  color: #333;
+  font-size: 1.8rem;
+  border-bottom: 3px solid #3490DC!important;
+  display: inline-block;
+  padding-bottom: .5rem;
+  padding-right: 2rem;
+}
+.btn-receta,
+.btn-receta:hover {
+  background-color: #3490DC !important;
+  border: none;
+}
+.owl-carousel .owl-stage { display: flex;}
+.card {
+  display: flex;
+  flex: 1 0 auto;
+  height: 100%;
+}
+.card-body {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.categorias-bg {
+  background-color: #68b1ec ;
+  .nav-link {
+      color: #222!important;
+      display: inline-block;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      font-size: 1.2rem!important;
+      text-transform: uppercase;
+      font-weight: bold;
+      &:before, &:after {
+          content: '';
+          position: absolute;
+          transition: transform .5s ease;
+      }
+      &:before {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4px;
+        background: #9561E2;
+        transform:  translateX(-100%);
+      }
+      &:hover:before {
+        transform:  translateX(0);
+      }
+  }
+}
+.hero-categorias {
+  background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.4), rgba(53, 53, 53, 0.571)),
+  url('../images/hero.jpg');
+  height:30rem;
+  background-size: cover;
+  background-position: top center;
+  .texto-buscar {
+      p {
+          font-size: 1.4rem;
+          color: #FFF;
+          font-weight: bold;
+      }
+  }
 }

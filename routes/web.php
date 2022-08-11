@@ -20,12 +20,7 @@ use App\Http\Controllers\RecetaController;
 |
 */
 
-Route::get('/', function () {
-    return redirect(route('recetas.index'));
-});
-
-// HACER LA RUTA EN LARAVEL 8
-
+Route::get('/', 'App\Http\Controllers\InicioController@index')->name('inicio.index');
 
 // Route::middleware('auth')->group(function(){
 
@@ -38,6 +33,12 @@ Route::get('/', function () {
 // Route::get('recetas/{receta}/edit',  [RecetaController::class, 'edit'])->name('recetas.edit');
 // Route::put('recetas/{receta}', [RecetaController::class, 'update'])->name('recetas.update');
 // Route::delete('/recetas/{receta}', [RecetaController::class, 'destroy'])->name('recetas.destroy');
+
+// RUTA PARA EL NAV DE CATEGORIAS
+Route::get('/categoria/{categoriaReceta}', 'App\Http\Controllers\CategoriasController@show')->name('categorias.show');
+
+// RUTA PARA EL BUSCADOR DE RECETAS
+Route::get('/buscar', [RecetaController::class, 'search'])->name('buscar.show');
 
 // todas las rutas de arriba, se pueden simplificar con la siguiente linea de codigo
 Route::resource('recetas', 'App\Http\Controllers\RecetaController');

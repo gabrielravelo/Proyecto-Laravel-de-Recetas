@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "moment": "^2.29.4",
+        "owl.carousel": "^2.3.4",
         "vue-sweetalert2": "^5.0.5"
     }
 }
